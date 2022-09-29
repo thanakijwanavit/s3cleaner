@@ -47,6 +47,7 @@ if __name__ == '__main__':
                 count_current += 1
             elif version["IsLatest"] is False:
                 count_non_current += 1
+                delete_list.append({'Key': version['Key'], 'VersionId': version['VersionId']})
             if (today - version['LastModified']).days > delete_after_retention_days:
                 delete_list.append({'Key': version['Key'], 'VersionId': version['VersionId']})
 
